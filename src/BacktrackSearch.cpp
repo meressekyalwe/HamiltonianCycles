@@ -5,13 +5,11 @@
 
 BacktrackSearch::BacktrackSearch(AlgoTypes algo)
 {
-	this->algo = algo;
-
-	if (this->algo == AlgoTypes::DepthFirst)
+	if (algo == AlgoTypes::DepthFirst)
 	{
 		s = new DepthFirstLinSearch();
 	}
-	else if (this->algo == AlgoTypes::Increasing)
+	else if (algo == AlgoTypes::Increasing)
 	{
 		s = new IncreasingLinSearch();
 	}

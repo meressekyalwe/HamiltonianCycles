@@ -1,6 +1,6 @@
-
 #include "Task.h"
 #include <iostream>
+#include <omp.h>
 
 
 bool Task::rho(const int i)
@@ -45,7 +45,8 @@ bool Task::isSafe(const int v, const int pos)
 
 bool Task::hamCycleUtil(const int pos)
 {
-	for (int v = 1; v < this->n; v++)
+#pragma omp parallel
+	for (int v = 1; v < n; v++)
 	{
 		if (isSafe(v, pos))
 		{
@@ -58,8 +59,10 @@ bool Task::hamCycleUtil(const int pos)
 
 void Task::print()
 {
+#pragma omp parallel for ordered
 	for (int i = 0; i < this->n; i++)
 	{
+#pragma omp ordered
 		std::cout << " " << path[i] << " ";
 	}
 

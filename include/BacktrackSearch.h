@@ -24,8 +24,4 @@ public:
 protected:
 
 	LinearSearch* s = nullptr;
-
-private:
-
-	AlgoTypes algo;
 };
